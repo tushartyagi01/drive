@@ -14,6 +14,7 @@ const userRoute = require('./routes/user-route')
 const indexRoute= require('./routes/index.route')
 
 app.set("view engine", 'ejs');
+app.use(express.static('public'));
 
 app.use(cookieParser());
 app.use('/user', userRoute);
