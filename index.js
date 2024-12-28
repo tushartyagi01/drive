@@ -20,6 +20,10 @@ app.use(cookieParser());
 app.use('/user', userRoute);
 app.use('/',indexRoute);
 
+app.get("/",(req,res)=>{
+      res.redirect('/user/login')
+})
+
 
 const port = process.env.PORT
 

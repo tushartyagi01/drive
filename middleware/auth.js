@@ -6,6 +6,7 @@ function auth(req,res,next){
         res.status(401).json({
             message:"user is unauthorized"
         })
+       res.redirect('/user/login');
     }
     try{
         const decoded= jwt.verify(token,process.env.JWT_SECRET);
@@ -13,9 +14,10 @@ function auth(req,res,next){
         return next();
 
     }catch(err){
-         return res.status(401).json({
+          res.status(401).json({
             message:"unauthorized"
          })
+         res.redirect('/user/login');
     }
 }
 module.exports= auth;

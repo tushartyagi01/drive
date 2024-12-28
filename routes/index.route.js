@@ -10,6 +10,8 @@ const fs= require('fs');
 const savedFilePath = require('path');
 const { schema } = require('../models/user.model');
 
+
+
 router.get('/home', authMiddleware,async(req,res)=>{
         const userFiles= await fileModel.find({ user: req.user.userId});
         console.log(userFiles);
@@ -42,7 +44,7 @@ router.post('/upload', authMiddleware, upload.single('file'), async (req,res)=>{
        console.log(img);
        console.log(req.body);
        console.log(req.file);
-       res.send("file uploaded successfully");
+       res.redirect('/home');
    
       
 })
